@@ -1,0 +1,52 @@
+<div class="container mt-4">
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="text-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  
+    <!-- Admin View -->
+    <div *ngIf="!isLoading && role === 'admin'">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>Student Directory</h4>
+      </div>
+  
+      <div class="table-responsive shadow-sm">
+        <table class="table table-bordered table-striped align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students">
+              <td>{{ student.name }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.course }}</td>
+              <td>
+                <span class="badge bg-success">{{ student.status }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> <!-- 🔧 This closing tag was missing -->
+  
+    <!-- Student View -->
+    <div *ngIf="!isLoading && role === 'student'">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>Welcome, {{ student?.name }}</h4>
+      </div>
+  
+      <ul class="list-group shadow-sm">
+        <li class="list-group-item"><strong>Email:</strong> {{ student?.email }}</li>
+        <li class="list-group-item"><strong>Course:</strong> {{ student?.course }}</li>
+        <li class="list-group-item"><strong>Status:</strong> {{ student?.status }}</li>
+      </ul>
+    </div>
+  </div>
+  

@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand navbar-light bg-light px-3">
+  <a class="navbar-brand" routerLink="/">StudentApp</a>
+  <div class="ms-auto">
+    <button *ngIf="!auth.isLoggedIn()" routerLink="/login" class="btn btn-outline-primary me-2">Login</button>
+    <button *ngIf="!auth.isLoggedIn()" routerLink="/register" class="btn btn-outline-success me-2">Register</button>
+    <button *ngIf="auth.isLoggedIn()" (click)="logout()" class="btn btn-outline-danger">Logout</button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

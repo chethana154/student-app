@@ -1,0 +1,22 @@
+<div class="container mt-4 w-50">
+    <h3>Register</h3>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    <div *ngIf="isLoading" class="text-center my-3">
+      <div class="spinner-border text-primary" role="status"></div>
+    </div>
+  
+    <form (ngSubmit)="register()" *ngIf="!isLoading">
+      <input class="form-control my-2" [(ngModel)]="user.name" name="name" placeholder="Name" required>
+      <input class="form-control my-2" [(ngModel)]="user.email" name="email" placeholder="Email" required>
+      <input class="form-control my-2" [(ngModel)]="user.course" name="course" placeholder="Course" required>
+      <input class="form-control my-2" [(ngModel)]="user.status" name="status" placeholder="Status" required>
+      <input class="form-control my-2" type="password" [(ngModel)]="user.password" name="password" placeholder="Password" required>
+      <select class="form-control my-2" [(ngModel)]="user.role" name="role" required>
+        <option value="" disabled selected hidden>-- Select Role --</option>
+        <option value="student">Student</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button class="btn btn-primary mt-2">Submit</button>
+    </form>
+  </div>
