@@ -30,12 +30,15 @@ touch .env
 # Add JWT_SECRET=yourSecretKey
 npm run dev
 
+ ## 🛠 Frontend Setup
 
-### Frontend
+To start the Angular frontend:
 
+```bash
 cd frontend
 npm install
 ng serve
+
 
 
 Endpoint	Method	Description
