@@ -12,7 +12,7 @@ const app = express();
 
 // ✅ CORS setup
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: true,
   credentials: true
 }));
 
