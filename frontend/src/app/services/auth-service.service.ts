@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface LoginResponse {
   token: string;
@@ -11,21 +12,21 @@ export interface LoginResponse {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:5001/api/auth';
   public isLoading = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
 
   register(user: any) {
-    return this.http.post(`${this.baseUrl}/register`, user);
+    return  this.http.post(`${environment.apiUrl}/register`, user); 
+   
   }
 
   login(credentials: { email: string; password: string }) {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, credentials);
+    return this.http.post<LoginResponse>(`${environment.apiUrl}/login`, credentials);
   }
 
   getProfile() {
-    return this.http.get(`${this.baseUrl}/profile`);
+    return this.http.get(`${environment.apiUrl}/profile`);
   }
 
   storeToken(token: string) {
