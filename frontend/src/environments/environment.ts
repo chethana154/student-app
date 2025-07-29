@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:5001/api/auth' 
+    apiUrl: 'https://student-app-ga8g.onrender.com/api/auth' 
   };
